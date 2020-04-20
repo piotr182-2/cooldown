@@ -1,0 +1,65 @@
+  <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+    <html lang="pl">
+       <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+          <title>Kalkulator cooldown'u umiejętności</title>
+          <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+          <script type="text/javascript">
+             google.load("jquery", "1");
+          </script>
+          <script type="text/javascript">
+          
+     
+             function update(){
+               var el = $("#calculator");
+               var wartosc1 = +el.find("[name=wartosc1]").val();
+               var wartosc2 = +el.find("[name=wartosc2]").val();
+              
+               
+               var sekund = wartosc1 * 150 / (150 + wartosc2) * 100 / (100 + wartosc2);
+               
+               
+               
+$('#summary').text(sekund.toFixed(1));
+               
+           
+             }
+            
+             $(document).ready(function(){
+                update();
+                $("#calculator input").keyup(update);
+             });
+             
+             
+             
+            
+
+          </script>
+       </head>
+       <body>
+          <table id="calculator">   
+             <tfoot>
+                <tr>
+                   <th colspan="4">Wynik: </th>
+                   <th id="summary"></th>
+                <th colspan="4">sekund</th>
+                </tr>
+             </tfoot>
+             <tbody>
+                <tr>
+                   <td>Bazowy cooldown umiejętności</td>
+                   <td> (sekundy)</td>
+                   <td><input type="text" name="wartosc1"></td>
+                </tr>
+                <tr>
+                   <td>Casting posiadany</td>
+                   <td></td>
+                   <td><input type="text" name="wartosc2"></td>
+                </tr>
+              
+            
+            
+             </tbody>
+          </table>
+       </body>
+    </html>
